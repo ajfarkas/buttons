@@ -1,0 +1,18 @@
+*:focus {
+  outline: none;
+}
+
+html {
+  font-family: lato, helvetica, sans-serif;
+  font-size: 62.5%
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  font-size: 1.6rem;
+}
