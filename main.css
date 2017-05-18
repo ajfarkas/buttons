@@ -22,11 +22,15 @@ button {
   pointer-events: none;
   -webkit-appearance: none;
   appearance: none;
-  border-radius: 100vw; }
+  border-radius: 100vw;
+  background-color: transparent; }
 
-.button-text {
-  position: relative;
+.button-record,
+.drop {
+  position: absolute;
   z-index: 9;
+  top: 50%;
+  left: 50%;
   padding: 5px;
   background-color: #d10000;
   border-radius: 5px;
@@ -36,10 +40,10 @@ button {
   font-size: 1.8rem;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d; }
-
-.button-text:active {
-  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.6);
-  color: #2592F5; }
+  .button-record:active,
+  .drop:active {
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.6);
+    color: #2592F5; }
 
 .button-record {
   pointer-events: all;
@@ -50,23 +54,21 @@ button {
   left: 0; }
   .button-record:checked:before {
     content: attr(value);
-    margin-left: -10px; }
-  .button-record:checked, .button-record:checked + .button-record {
+    color: seagreen; }
+  .button-record:checked, .button-record:checked ~ .button-record {
     z-index: -1; }
 
-.drop {
-  position: absolute;
-  top: 50%;
-  left: 50%; }
-
-.drop[data-clicks="0"]:before {
+.drop:before {
   content: 'Don\'t';
   position: absolute;
   top: -20px;
   left: 0;
   color: #e2e2e2; }
 
-.drop[data-clicks="1"] {
+[value]:checked ~ .drop:before {
+  content: none; }
+
+[value="1"]:checked ~ .drop {
   transform-origin: 0 50%;
   animation: drop 3.5s linear forwards; }
 
@@ -89,12 +91,11 @@ button {
   100% {
     top: 100vh;
     transform: translateY(-50%) rotateZ(90deg) translateX(-100%); } }
-.drop[data-clicks="2"] {
+[value="2"]:checked ~ .drop {
   transform-origin: 100% 50%;
   animation: dropAgain .7s ease-in forwards; }
-
-.drop[data-clicks="2"]:active {
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6); }
+  [value="2"]:checked ~ .drop:active {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6); }
 
 @keyframes dropAgain {
   0% {
@@ -103,7 +104,7 @@ button {
   100% {
     top: 100vh;
     transform: translateY(-50%) translateX(-100%) rotateZ(90deg) rotateY(-90deg); } }
-.drop[data-clicks="3"] {
+[value="3"]:checked ~ .drop {
   display: none; }
 
 /* Replacement Dropdown  Menu */

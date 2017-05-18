@@ -3,11 +3,15 @@ button {
   -webkit-appearance: none;
           appearance: none;
   border-radius: 100vw;
+  background-color: transparent;
 }
 
-.button-text {
-  position: relative;
+.button-record,
+.drop {
+  position: absolute;
   z-index: 9;
+  top: 50%;
+  left: 50%;
   padding: 5px;
   background-color: #d10000;
   border-radius: 5px;
@@ -17,10 +21,11 @@ button {
   font-size: 1.8rem;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-}
-.button-text:active {
-  box-shadow: 1px 1px 1px 0 rgba(0,0,0,.6);
-  color: #2592F5;
+  
+  &:active {
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,.6);
+    color: #2592F5;
+  }
 }
 
 .button-record {
@@ -30,30 +35,29 @@ button {
   height: 100%;
   top: 0;
   left: 0;
+  // opacity: 0;
 
   &:checked:before {
     content: attr(value);
-    margin-left: -10px;
+    color: seagreen;
   }
   &:checked,
-  &:checked + .button-record {
+  &:checked ~ .button-record {
     z-index: -1;
   }
 }
 
-.drop {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-.drop[data-clicks="0"]:before {
+.drop:before {
   content: 'Don\'t';
   position: absolute;
   top: -20px;
   left: 0;
   color: #e2e2e2;
 }
-.drop[data-clicks="1"] {
+
+[value]:checked ~ .drop:before { content: none; }
+
+[value="1"]:checked ~ .drop {
   transform-origin: 0 50%;
   animation: drop 3.5s linear forwards;
 }
@@ -74,12 +78,13 @@ button {
   }
 }
 
-.drop[data-clicks="2"] {
+[value="2"]:checked ~ .drop {
   transform-origin: 100% 50%;
   animation: dropAgain .7s ease-in forwards;
-}
-.drop[data-clicks="2"]:active {
-  box-shadow: 0 0 0 0 rgba(0,0,0,.6);
+
+  &:active {
+    box-shadow: 0 0 0 0 rgba(0,0,0,.6);
+  }
 }
 @keyframes dropAgain {
   0% { 
@@ -92,4 +97,4 @@ button {
   }
 }
 
-.drop[data-clicks="3"] { display: none; }
+[value="3"]:checked ~ .drop { display: none; }
