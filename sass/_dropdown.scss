@@ -1,0 +1,46 @@
+/* Replacement Dropdown  Menu */
+
+// only show form after button fall sequence
+// #dropdown { display: none; }
+.drop[data-clicks="3"] + .dropdown {
+  display: block;
+}
+
+.new-drop {
+  display: inline-block;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.drop-bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.option {
+  z-index: 2;
+  display: block;
+  position: relative;
+}
+.option > * { display: none; }
+
+.opt-input {
+  -moz-appearance: none;
+  // position: relative;
+  // left: -20px;
+}
+
+.opt-input:checked + p {
+  display: inline-block;
+}
+
+.new-drop:active > .option > *,
+.new-drop:active > .drop-bg,
+.drop-bg:hover,
+.drop-bg:hover ~ .option > * {
+  display: inline-block;
+}

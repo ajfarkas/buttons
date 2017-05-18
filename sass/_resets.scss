@@ -1,5 +1,9 @@
-*:focus {
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
   outline: none;
+  &:focus { outline: none; }
 }
 
 html {
@@ -11,7 +15,6 @@ body {
   position: relative;
   height: 100vh;
   width: 100vw;
-  margin: 0;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   font-size: 1.6rem;

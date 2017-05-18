@@ -7,17 +7,39 @@
 </head>
 <body>
   <button type="button" class="drop" data-clicks="0">Click Me!</button>
-  <ul class="new-drop">
-    <li class="option" value="1">
-      <p class="opt-text">1</p>
-    </li>
-    <li class="option" value="2">
-      <p class="opt-text">2</p>
-    </li>
-    <li class="option" value="3">
-      <p class="opt-text">3</p>
-    </li>
-  </ul>
+  <fieldset class="dropdown">
+    <form class="new-drop">
+      <div class="drop-bg"></div>
+      <label class="option" for="drop1">
+        <input type="radio"
+               class="opt-input"
+               name="dropnumber"
+               id="drop1"
+               value="1"
+               checked="true">
+        </input>
+        <p>1</p>
+      </label>
+      <label class="option" for="drop2">
+        <input type="radio"
+               class="opt-input"
+               name="dropnumber"
+               id="drop2"
+               value="2">
+        </input>
+        <p>2</p>
+      </label>
+      <label class="option" for="drop3">
+        <input type="radio"
+               class="opt-input"
+               name="dropnumber"
+               id="drop3"
+               value="3">
+        </input>
+        <p>3</p>
+      </label>
+    </form>
+  </fieldset>
 </body>
 <script src="doSomething.js" type="text/javascript"></script>
 </html>
