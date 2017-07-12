@@ -105,7 +105,33 @@ button {
     top: 100vh;
     transform: translateY(-50%) translateX(-100%) rotateZ(90deg) rotateY(-90deg); } }
 [value="3"]:checked ~ .drop {
-  display: none; }
+  transform-origin: 100% 50%;
+  animation: kick 1s linear forwards; }
+
+@keyframes kick {
+  0% {
+    top: 100vh;
+    transform: translateY(-50%) translateX(-100%) rotateZ(90deg) rotateY(-90deg); }
+  20% {
+    top: 85vh;
+    transform: translateY(-50%) translateX(-100%) translateZ(-400px) rotateZ(90deg) rotateY(-180deg); }
+  40% {
+    top: 60vh;
+    transform: translateY(-50%) translateX(-100%) translateZ(-1600px) rotateZ(90deg) rotateY(-270deg); }
+  45% {
+    transform-origin: 100% 50%;
+    top: 60vh;
+    transform: translateY(-50%) translateX(-100%) translateZ(-6000px) rotateZ(90deg) rotateY(-270deg); }
+  45.5% {
+    transform-origin: 50% 50%;
+    top: 50%;
+    transform: translateZ(1600px); }
+  100% {
+    transform-origin: 50% 50%;
+    top: 50%;
+    transform: translateZ(0); } }
+[value="4"]:checked ~ .drop {
+  background-color: peru; }
 
 /* Replacement Dropdown  Menu */
 .drop[data-clicks="3"] + .dropdown {
