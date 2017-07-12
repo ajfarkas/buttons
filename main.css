@@ -65,7 +65,7 @@ button {
   left: 0;
   color: #e2e2e2; }
 
-[value]:checked ~ .drop:before {
+[value]:not([value="0"]):checked ~ .drop:before {
   content: none; }
 
 [value="1"]:checked ~ .drop {

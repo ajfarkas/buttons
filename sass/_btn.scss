@@ -55,7 +55,7 @@ button {
   color: #e2e2e2;
 }
 
-[value]:checked ~ .drop:before { content: none; }
+[value]:not([value="0"]):checked ~ .drop:before { content: none; }
 
 [value="1"]:checked ~ .drop {
   transform-origin: 0 50%;
