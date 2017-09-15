@@ -35,14 +35,13 @@ button {
   height: 100%;
   top: 0;
   left: 0;
-  // opacity: 0;
+  opacity: 0;
 
   &:checked:before {
     content: attr(value);
     color: seagreen;
   }
-  &:checked,
-  &:checked ~ .button-record {
+  &:not([value="0"]):checked ~ .button-record {
     z-index: -1;
   }
 }
@@ -57,9 +56,21 @@ button {
 
 [value]:not([value="0"]):checked ~ .drop:before { content: none; }
 
+@keyframes blockClick {
+  from {
+    z-index: 99;
+  }
+  to {
+    z-index: -1;
+  }
+}
+
 [value="1"]:checked ~ .drop {
   transform-origin: 0 50%;
   animation: drop 3.5s linear forwards;
+}
+[value="1"]:checked {
+  animation: blockClick 3.5s linear forwards;
 }
 @keyframes drop {
   20% { transform: none; }
@@ -78,13 +89,16 @@ button {
   }
 }
 
-[value="2"]:checked ~ .drop {
+[value="2"]:checked  ~ .drop {
   transform-origin: 100% 50%;
   animation: dropAgain .7s ease-in forwards;
 
   &:active {
     box-shadow: 0 0 0 0 rgba(0,0,0,.6);
   }
+}
+[value="2"]:checked {
+  animation: blockClick .7s linear forwards;
 }
 @keyframes dropAgain {
   0% { 
@@ -100,6 +114,9 @@ button {
 [value="3"]:checked ~ .drop {
   transform-origin: 100% 50%;
   animation: kick 1s linear forwards;
+}
+[value="3"]:checked {
+  animation: blockClick 1s linear forwards;
 }
 @keyframes kick {
   0% { 
